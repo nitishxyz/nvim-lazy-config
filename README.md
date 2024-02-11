@@ -37,6 +37,7 @@ nvim
 - gitsigns: https://github.com/lewis6991/gitsigns.nvim
 - mason: https://github.com/williamboman/mason.nvim
 - mason-lspconfig: https://github.com/williamboman/mason-lspconfig.nvim
+- markdown-preview: https://github.com/iamcco/markdown-preview.nvim
 - neo-tree: https://github.com/nvim-neo-tree/neo-tree.nvim
 - nvim-web-devicons: https://github.com/nvim-tree/nvim-web-devicons
 - none-ls: https://github.com/nvimtools/none-ls.nvim

@@ -1,6 +1,31 @@
 # NVIM LAZY CONFIG
 
-I wrote this config for my own neovim. Following plugins are used in this project:
+I wrote this config for my own neovim. 
+
+# Steps to use this config
+
+### Prerequisites
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [NerdFonts](https://www.nerdfonts.com)
+
+## Install NeoVim
+[NeoVim](https://github.com/neovim/neovim)
+
+## Clone this repo
+
+```
+git clone git@github.com:nitishxyz/nvim-lazy-config.git ~/.config/nvim
+```
+
+## Run nvim
+
+```
+nvim
+```
+
+
+### Following plugins are used in this project:
 
 - alpha-nvim: https://github.com/goolord/alpha-nvim
 - barbar: https://github.com/romgrk/barbar.nvim
@@ -27,5 +52,3 @@ I wrote this config for my own neovim. Following plugins are used in this projec
 - telescope-ui-select: https://github.com/nvim-telescope/telescope-ui-select.nvim)
 - treesitter: https://github.com/nvim-treesitter/nvim-treesitter
 - vim-be-good: https://github.com/ThePrimeagen/vim-be-good
-
-

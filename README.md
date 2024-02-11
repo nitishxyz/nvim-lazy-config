@@ -1,0 +1,5 @@
+# NVIM LAZY CONFIG
+
+### Prerequisites
+
+

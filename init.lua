@@ -14,4 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 
-vim.cmd("Neotree filesystem reveal right")
+
+vim.cmd([[
+    augroup AutoOpenGroup
+        autocmd!
+        autocmd BufRead * Neotree filesystem reveal right
+    augroup END
+]])

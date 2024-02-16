@@ -10,6 +10,9 @@ return {
     vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
     local config = require("neo-tree")
     config.setup({
+      window = {
+        position = "right",
+      },
       filesystem = {
         filtered_items = {
           visible = false, -- when true, they will just be displayed differently than normal items
@@ -31,17 +34,6 @@ return {
             ".VolumeIcon.icns",
           },
         },
-        follow_current_file = {
-          enable = true,
-          leave_dirs_open = true,
-        },
-      },
-      buffers = {
-          follow_current_file = {
-            enabled = true, -- This will find and focus the file in the active buffer every time
-            --              -- the current file is changed while the tree is open.
-            leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-          },
       }
 
     })

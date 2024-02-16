@@ -18,6 +18,6 @@ require("lazy").setup("plugins")
 vim.cmd([[
     augroup AutoOpenGroup
         autocmd!
-        autocmd BufRead * Neotree filesystem reveal right
+        autocmd BufRead * Neotree show
     augroup END
 ]])

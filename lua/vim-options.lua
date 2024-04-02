@@ -14,8 +14,12 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
+vim.cmd("set smartcase")
 -- Set clipboard to system clipboard
 vim.cmd("set clipboard=unnamedplus")
+
+
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 
 -- Copy to clipboard
 vim.keymap.set('n', '<A-y>', '+y')

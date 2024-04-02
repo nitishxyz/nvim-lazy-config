@@ -14,6 +14,7 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 
+vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
 -- Set clipboard to system clipboard
 vim.cmd("set clipboard=unnamedplus")

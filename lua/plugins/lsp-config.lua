@@ -11,7 +11,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "html", "gopls", "prismals", "tailwindcss", "htmx"},
+        ensure_installed = { "lua_ls", "tsserver", "html", "gopls", "prismals", "tailwindcss", "htmx", "biome", "jsonls", "graphql"},
       })
     end,
   },
@@ -46,6 +46,19 @@ return {
       lspconfig.htmx.setup({
         capabilities = capabilities,
       })
+
+      lspconfig.biome.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.jsonls.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.graphql.setup({
+        capabilities = capabilities,
+      })
+
 
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

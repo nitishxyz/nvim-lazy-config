@@ -110,6 +110,6 @@ map("n", "<leader>k", ":!", { noremap = true, silent = false })
 vim.cmd([[
     augroup auto_format_on_save
         autocmd!
-        autocmd BufWritePost * lua vim.lsp.buf.format()
+        autocmd BufWritePost * lua vim.lsp.buf.format({ timeout = 2000 })
     augroup END
 ]])

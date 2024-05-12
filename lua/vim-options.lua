@@ -104,7 +104,7 @@ map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 --
 
 -- mapping to reload LSP
-vim.keymap.set("n", "<leader>l", ":LspRestart<CR>")
+map("n", "<leader>l", ":LspRestart<CR>", opts)
 
 -- mapping for command palette :!
 map("n", "<leader>k", ":!", { noremap = true, silent = false })

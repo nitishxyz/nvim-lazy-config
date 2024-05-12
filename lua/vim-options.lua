@@ -1,5 +1,9 @@
 local map = vim.api.nvim_set_keymap
 
+
+
+local opts = { noremap = true, silent = true }
+
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
@@ -7,46 +11,46 @@ vim.cmd("set shiftwidth=2")
 vim.g.mapleader = " "
 
 -- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+map("n", "<c-k>", ":wincmd k<CR>", opts)
+map("n", "<c-j>", ":wincmd j<CR>", opts)
+map("n", "<c-h>", ":wincmd h<CR>", opts)
+map("n", "<c-l>", ":wincmd l<CR>", opts)
 
-vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+map("n", "<leader>h", ":nohlsearch<CR>", opts)
 
 vim.cmd("set ignorecase")
 vim.cmd("set smartcase")
 -- Set clipboard to system clipboard
 vim.cmd("set clipboard=unnamedplus")
 
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+map("n", "<space>e", ":lua vim.diagnostic.open_float()<CR>", opts)
 
 -- Copy to clipboard
-vim.keymap.set("n", "<A-y>", "+y")
-vim.keymap.set("n", "<A-Y>", "+Y")
-vim.keymap.set("n", "<A-yy>", "+yy")
+map("n", "<A-y>", "+y", opts)
+map("n", "<A-Y>", "+Y", opts)
+map("n", "<A-yy>", "+yy", opts)
 
 -- Paste from clipboard
-vim.keymap.set("n", "<A-p>", "+p")
-vim.keymap.set("n", "<A-P>", "+P")
+map("n", "<A-p>", "+p", opts)
+map("n", "<A-P>", "+P", opts)
 
 -- Insert mode mappings
-vim.keymap.set("i", "<C-h>", "<Left>")
-vim.keymap.set("i", "<C-j>", "<Down>")
-vim.keymap.set("i", "<C-k>", "<Up>")
-vim.keymap.set("i", "<C-l>", "<Right>")
+map("i", "<C-h>", "<Left>", opts)
+map("i", "<C-j>", "<Down>", opts)
+map("i", "<C-k>", "<Up>", opts)
+map("i", "<C-l>", "<Right>", opts)
 
 -- Move in insert mode
-vim.keymap.set("i", "<A-a>", "<Home>")
-vim.keymap.set("i", "<A-e>", "<End>")
-vim.keymap.set("i", "<A-h>", "<Left>")
-vim.keymap.set("i", "<A-j>", "<Down>")
-vim.keymap.set("i", "<A-k>", "<Up>")
-vim.keymap.set("i", "<A-l>", "<Right>")
-vim.keymap.set("i", "<A-d>", "<Del>")
-vim.keymap.set("i", "<A-b>", "<C-Left>")
-vim.keymap.set("i", "<A-f>", "<C-Right>")
-vim.keymap.set("i", "<A-w>", "<C-Right>")
+map("i", "<A-a>", "<Home>", opts)
+map("i", "<A-e>", "<End>", opts)
+map("i", "<A-h>", "<Left>", opts)
+map("i", "<A-j>", "<Down>", opts)
+map("i", "<A-k>", "<Up>", opts)
+map("i", "<A-l>", "<Right>", opts)
+map("i", "<A-d>", "<Del>", opts)
+map("i", "<A-b>", "<C-Left>", opts)
+map("i", "<A-f>", "<C-Right>", opts)
+map("i", "<A-w>", "<C-Right>", opts)
 
 -- Move to start/end of line
 -- vim.keymap.set('n', 'H', '^')
@@ -55,7 +59,6 @@ vim.keymap.set("i", "<A-w>", "<C-Right>")
 --
 vim.wo.number = true
 
-local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
 map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)

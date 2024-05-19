@@ -1,4 +1,5 @@
-return {
+return {}
+--[[ return {
   {'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
@@ -6,6 +7,7 @@ return {
     },
     init = function() vim.g.barbar_auto_setup = false end,
     opts = {
+      enable = false
       -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
       -- animation = true,
       -- insert_at_start = true,
@@ -13,4 +15,4 @@ return {
     },
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
-}
+} ]]

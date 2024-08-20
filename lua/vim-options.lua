@@ -109,6 +109,28 @@ map("n", "<leader>l", ":LspRestart<CR>", opts)
 -- mapping for command palette :!
 map("n", "<leader>k", ":!", { noremap = true, silent = false })
 
+
+-- map("n", "<C-r>", ":Neotree filesystem reveal right<CR>", {})
+map("n", "<C-r>", ":Neotree toggle<CR>", {})
+
+
+local function toggle_diffthis()
+  if vim.b.gitsigns_diffthis_toggle then
+    vim.cmd('Gitsigns diffthis')  -- Close the diff
+    vim.cmd('windo diffoff')      -- Close the diff view
+    vim.b.gitsigns_diffthis_toggle = false
+  else
+    vim.cmd('Gitsigns diffthis')  -- Open the diff view
+    vim.b.gitsigns_diffthis_toggle = true
+  end
+end
+
+
+
+-- Navigation
+map("n", "]c", ":Gitsigns next_hunk<CR>", opts)
+map("n", "[c", ":Gitsigns prev_hunk<CR>", opts)
+
 -- Define an autocmd for BufWritePost event to trigger formatting
 vim.cmd([[
     augroup auto_format_on_save

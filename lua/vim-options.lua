@@ -131,10 +131,3 @@ end
 map("n", "]c", ":Gitsigns next_hunk<CR>", opts)
 map("n", "[c", ":Gitsigns prev_hunk<CR>", opts)
 
--- Define an autocmd for BufWritePost event to trigger formatting
-vim.cmd([[
-    augroup auto_format_on_save
-        autocmd!
-        autocmd BufWritePost * lua vim.lsp.buf.format({ timeout = 2000 })
-    augroup END
-]])

@@ -1,69 +1,99 @@
 return {
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup({
-        PATH = "prepend", -- "skip" seems to cause the spawning error
-      })
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "html", "gopls", "prismals", "tailwindcss", "htmx", "biome", "jsonls", "graphql"},
-      })
-    end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
+	{
+		"williamboman/mason.nvim",
+		dependencies = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
+		config = function()
+			require("mason").setup({
+				PATH = "prepend", -- "skip" seems to cause the spawning error
+			})
 
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.tsserver.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
+			local mason_lspconfig = require("mason-lspconfig")
 
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
+			mason_lspconfig.setup({
+				ensure_installed = {
+					"lua_ls",
+					"tsserver",
+					"html",
+					"gopls",
+					"prismals",
+					"tailwindcss",
+					"htmx",
+					"biome",
+					"jsonls",
+					"graphql",
+				},
+			})
 
-      lspconfig.prismals.setup({
-        capabilities = capabilities,
-      })
+			local mason_tool_installer = require("mason-tool-installer")
 
-      lspconfig.tailwindcss.setup({
-        capabilities = capabilities,
-      })
+			mason_tool_installer.setup({
+				ensure_installed = {
+					"stylua",
+					"prettierd",
+					"prettier",
+					"black",
+					"isort",
+					"eslint_d",
+					"stylelint",
+					"htmlhint",
+					"jsonlint",
+					"yamllint",
+					"shellcheck",
+					"vint",
+					"vale",
+					"shfmt",
+					"luacheck",
+				},
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			local lspconfig = require("lspconfig")
 
-      lspconfig.htmx.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.html.setup({
+				capabilities = capabilities,
+			})
 
-      lspconfig.biome.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
 
-      lspconfig.jsonls.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.prismals.setup({
+				capabilities = capabilities,
+			})
 
-      lspconfig.graphql.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+			})
 
+			lspconfig.htmx.setup({
+				capabilities = capabilities,
+			})
 
+			lspconfig.biome.setup({
+				capabilities = capabilities,
+			})
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-    end,
-  },
+			lspconfig.jsonls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.graphql.setup({
+				capabilities = capabilities,
+			})
+
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+		end,
+	},
 }

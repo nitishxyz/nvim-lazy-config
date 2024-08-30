@@ -1,7 +1,5 @@
 local map = vim.api.nvim_set_keymap
 
-
-
 local opts = { noremap = true, silent = true }
 
 vim.cmd("set expandtab")
@@ -59,7 +57,6 @@ map("i", "<A-w>", "<C-Right>", opts)
 --
 vim.wo.number = true
 
-
 -- Move to previous/next
 map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
 map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
@@ -109,25 +106,20 @@ map("n", "<leader>l", ":LspRestart<CR>", opts)
 -- mapping for command palette :!
 map("n", "<leader>k", ":!", { noremap = true, silent = false })
 
-
 -- map("n", "<C-r>", ":Neotree filesystem reveal right<CR>", {})
-map("n", "<C-r>", ":Neotree toggle<CR>", {})
-
+map("n", "<C-R>", ":Neotree toggle<CR>", {})
 
 local function toggle_diffthis()
-  if vim.b.gitsigns_diffthis_toggle then
-    vim.cmd('Gitsigns diffthis')  -- Close the diff
-    vim.cmd('windo diffoff')      -- Close the diff view
-    vim.b.gitsigns_diffthis_toggle = false
-  else
-    vim.cmd('Gitsigns diffthis')  -- Open the diff view
-    vim.b.gitsigns_diffthis_toggle = true
-  end
+	if vim.b.gitsigns_diffthis_toggle then
+		vim.cmd("Gitsigns diffthis") -- Close the diff
+		vim.cmd("windo diffoff") -- Close the diff view
+		vim.b.gitsigns_diffthis_toggle = false
+	else
+		vim.cmd("Gitsigns diffthis") -- Open the diff view
+		vim.b.gitsigns_diffthis_toggle = true
+	end
 end
-
-
 
 -- Navigation
 map("n", "]c", ":Gitsigns next_hunk<CR>", opts)
 map("n", "[c", ":Gitsigns prev_hunk<CR>", opts)
-

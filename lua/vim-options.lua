@@ -108,18 +108,3 @@ map("n", "<leader>k", ":!", { noremap = true, silent = false })
 
 -- map("n", "<C-r>", ":Neotree filesystem reveal right<CR>", {})
 map("n", "<C-R>", ":Neotree toggle<CR>", {})
-
-local function toggle_diffthis()
-	if vim.b.gitsigns_diffthis_toggle then
-		vim.cmd("Gitsigns diffthis") -- Close the diff
-		vim.cmd("windo diffoff") -- Close the diff view
-		vim.b.gitsigns_diffthis_toggle = false
-	else
-		vim.cmd("Gitsigns diffthis") -- Open the diff view
-		vim.b.gitsigns_diffthis_toggle = true
-	end
-end
-
--- Navigation
-map("n", "]c", ":Gitsigns next_hunk<CR>", opts)
-map("n", "[c", ":Gitsigns prev_hunk<CR>", opts)
